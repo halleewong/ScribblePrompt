@@ -44,9 +44,9 @@ See [here](https://github.com/facebookresearch/segment-anything#installation) fo
 
 ## Ongoing
 
-[] Release jupyter notebook tutorial
-[] Release scribble simulation code
-[] Release segmentations labels collected using ScribblePrompt
+- [ ] Release jupyter notebook tutorial
+- [ ] Release scribble simulation code
+- [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
 
@@ -54,7 +54,7 @@ Code for ScribblePrompt SAM builds on [Segment Anything](https://github.com/face
 
 ## License
 
-This project is released under 
+This project is released under the [Apache 2.0 License](https://github.com/halleewong/ScribblePrompt/blob/main/LICENSE) 
 
 ## Citation
 
