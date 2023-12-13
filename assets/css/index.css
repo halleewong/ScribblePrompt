@@ -1,0 +1,216 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('../fonts/open-sans-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/open-sans-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+       url('../fonts/open-sans-v15-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/open-sans-v15-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+
+
+body {
+    margin: auto;
+    padding: 0;
+    color: #000;
+    -webkit-transition: all;
+    -moz-transition: all;
+    -ms-transition: all;
+    -o-transition: all;
+    transition: all;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: 400;
+    font-family: 'Noto Sans', sans-serif;
+    /* font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+    color: #4a4a4a;
+    background-color: #fdfdfd;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+
+.abstract {
+    max-width: 800px;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+.tldr {
+    max-width: 800px;
+}
+
+p {
+  font-size: 13pt;
+}
+
+.jumbotron {
+    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.jumbotron {
+    background-color: #fdfdfd;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.jumbotron a {
+    color: #2d2d2d;
+}
+
+/* Title */
+.jumbotron h1 {
+    font-size: 52pt;
+    font-weight: 400;
+    color: #202020;
+}
+
+/* Section Headers */
+h2 {
+    color: #2d2d2d;
+    margin-top: 50px;
+    font-size: 24pt;
+    text-align: center;
+}
+
+/* Subtitle */
+h3 {
+    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  
+    font-size: 24pt;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;   
+    margin-top: 20px;
+    font-size: 18pt;
+    font-weight: 100;
+}
+
+.table-like {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.table-like div {
+    max-width: 95%;
+    margin:auto;
+    padding: 10px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+.authors a:link, .authors a:visited {
+    /* color: hsl(204, 86%, 53%) ; */
+    color: #2690e1;
+    text-decoration: none; 
+}
+.authors a:hover {
+    text-decoration: underline;
+}
+
+
+p small {
+  font-weight: 350;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.button-link {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #363636;
+  color: white;
+  border-radius: 290486px;
+  padding: 10px;
+  border-color: #363636;
+  font-weight: 200;
+  padding: 0.4em 1em;
+  margin: .5em .5em;
+}
+
+.button-link svg {
+  padding-top: .1em;
+  padding-right: .1em;
+}
+
+.button-link:hover {
+  background-color: #363636;
+  color: white;
+  border-radius: 290486px;
+  padding: 10px;
+  border-color: #363636;
+  font-weight: 200;
+  padding: 0.35em 1em;
+}
+
+.citation {
+    font-family: monospace;
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    font-size: 12pt;
+    border-color: #faebcc;
+}
+
+.col-sm-offset-1 {
+    margin-left: 2.5%;
+}
+
+.col-sm-10 {
+    width: 95%;
+}
+
+.img-responsive {
+    margin-top: 20px;
+}
+
+/* Hide desktop-only elements on mobile devices */
+@media only screen and (max-width: 767px) {
+.desktop-only {
+display: none;
+}
+}
+
+/* Hide mobile-only elements on desktop devices */
+@media only screen and (min-width: 768px) {
+.mobile-only {
+display: none;
+}
+}

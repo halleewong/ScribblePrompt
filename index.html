@@ -1,1 +1,197 @@
-Hello Word
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./assets/favicon.ico">
+    <meta name="description" content="ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Medical Image">
+    <meta name="keywords" content="ScribblePrompt,Segmentation,Interactive,Medical,Scribbles,Neural-Networks">
+    <title>ScribblePrompt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/d3e95fa766.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>ScribblePrompt</h1>
+        <h3>Fast and Flexible Interactive Segmentation for Any Medical Image</h3>
+        <h2></h2>
+        <center>
+
+<div class="desktop-only">
+  <div class="table-like authors" style="justify-content:space-evenly;max-width:880px;margin:auto;">
+    <div width="1"></div>
+    <div>
+      <center>
+        <a href="https://halleewong.github.io/" style="font-size: larger">Hallee E. Wong</a>
+      </center>
+      <center>
+        MIT CSAIL & MGH
+      </center>
+    </div>
+
+    <div>
+      <center>
+        <a href="https://mariannerakic.github.io/" style="font-size: larger">Marianne Rakic</a>
+      </center>
+      <center>
+        MIT CSAIL & Broad Institute
+      </center>
+    </div>
+
+    <div>
+        <center>
+          <a href="https://people.csail.mit.edu/guttag/" style="font-size: larger">John Guttag</a>
+        </center>
+        <center>
+          MIT CSAIL
+        </center>
+      </div>
+      <div style="padding: 10px" width="1"></div>
+      <div>
+        <center>
+          <a href="http://www.mit.edu/~adalca/" style="font-size: larger">Adrian V. Dalca</a>
+        </center>
+        <center>
+          MIT CSAIL & HMS, MGH
+        </center>
+      </div>
+
+    </div>
+
+
+<div class="mobile-only">
+
+  <div class="table-like authors" style="justify-content:space-evenly;max-width:880px;margin:auto;">
+    <div>
+      <center>
+        <a href="https://halleewong.github.io/" style="font-size: larger; padding: 0em 2em">Hallee E. Wong</a>
+      </center>
+      <center>
+        MIT CSAIL & MGH
+      </center>
+    </div>
+
+    <div>
+      <center>
+        <a href="https://mariannerakic.github.io/" style="font-size: larger; padding: 0em 2em">Marianne Rakic</a>
+      </center>
+      <center>
+        MIT CSAIL & Broad Institute
+      </center>
+    </div>
+   <div>
+      <center>
+        <a href="https://people.csail.mit.edu/guttag/" style="font-size: larger; padding: 0em 2em">John Guttag</a>
+      </center>
+      <center>
+        MIT CSAIL
+      </center>
+    </div>
+    <div>
+      <center>
+        <a href="http://www.mit.edu/~adalca/" style="font-size: larger; padding: 0em 2em">Adrian V. Dalca</a>
+      </center>
+      <center>
+        MIT CSAIL & HMS, MGH
+      </center>
+    </div>
+    </div>
+
+    </center>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="container bg-3">
+        <div class="row text-center">
+
+        <a href="https://arxiv.org/abs/2312.07381" target="_blank">
+            <button class="button-link">
+            <i class="fa-regular fa-file-lines fa-lg" style="color: #ffffff;"></i>
+            &nbsp;Paper
+        </button>
+        </a>
+
+        <a href="https://huggingface.co/spaces/halleewong/ScribblePrompt" target="_blank">
+        <button class="button-link">
+            <i class="fa-solid fa-wand-magic-sparkles fa-lg" style="color: #ffffff;"></i>
+            &nbsp;Demo
+        </button>
+        </a>
+
+        <a href="https://youtu.be/L8CiAoHzPUE" target="_blank">
+        <button class="button-link">
+            <i class="fa-solid fa-film fa-lg" style="color: #ffffff;"></i>
+            &nbsp;Video
+        </button>
+        </a>
+
+        <a href="https://github.com/halleewong/ScribblePrompt" target="_blank">
+        <button class="button-link">
+            <i class="fa-brands fa-github fa-lg" style="color: #ffffff;"></i>
+            &nbsp;Code
+        </button>
+        </a>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="container tldr bg-3">
+  <div class="row ">
+    <h4 class="text-center ">
+      <b>tl;dr;</b> ScribblePrompt enables users to segment <b>unseen</b> structures<br>in medical images using scribbles, clicks, and bounding boxes
+    </h4>
+    
+  </div>
+</div>
+
+<div class="container bg-3 ">
+  <div class="row ">
+  <h2 class="text-center ">Abstract</h2>
+  <hr/>
+  <div class="abstract">
+    <p>
+      Semantic medical image segmentation is a crucial part of both scientific research and clinical care. With enough labelled data, deep learning models can be trained to accurately automate specific medical image segmentation tasks. However, manually segmenting images to create training data is highly labor intensive.
+      We present ScribblePrompt, an interactive segmentation framework for medical imaging that enables human annotators to segment unseen structures using scribbles, clicks, and bounding boxes. 
+      Scribbles are an intuitive form of user interaction for complex tasks, however most existing methods focus on click-based interactions. We introduce algorithms for simulating realistic scribbles that enable training models that are amenable to multiple types of interaction. 
+      To achieve generalization to new tasks, we train on a diverse collection of 65 open-access biomedical datasets -- using both real and synthetic labels. 
+      We test ScribblePrompt with multiple network architectures and unseen datasets, and demonstrate that it can be used in real-time on a single CPU. 
+      We evaluate ScribblePrompt using manually-collected scribbles, simulated interactions, and a user study. In the user study, ScribblePrompt reduced annotation time by 28% while improving Dice by 15% compared to the Segment Anything Model. ScribblePrompt outperforms existing methods in all our evaluations. 
+    </p>
+  </div>
+  
+  
+</div>
+</div>
+
+<div class="container bg-3 ">
+  <div class="row ">
+    <h2 class="text-center ">Citation</h2>
+    <hr/>
+    <p>If you find our work or any of our materials useful, please cite our paper:</p>
+    <div class="alert alert-light citation ">
+        @article{wong2023scribbleprompt,<br>
+          &nbsp;&nbsp;title={ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Medical Image},<br>
+          &nbsp;&nbsp;author={Hallee E. Wong and Marianne Rakic and John Guttag and Adrian V. Dalca},<br>
+          &nbsp;&nbsp;journal={arXiv:2312.07381},<br>
+          &nbsp;&nbsp;year={2023},<br>
+    }
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+</body>
+</html>

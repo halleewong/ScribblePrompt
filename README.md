@@ -1,2 +1,3 @@
-# ScribblePrompt
-Fast and Flexible Interactive Segmentation for any Medical Image
+# ScribblePrompt Website
+
+Website for ScribblePrompt written in html and css
