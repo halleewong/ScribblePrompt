@@ -97,7 +97,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 
 Code for ScribblePrompt SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything) 
 
-## Reference
+## Citation
 
 If you find our work or any of our materials useful, please cite our paper:
 ```
