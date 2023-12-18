@@ -8,7 +8,8 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
-🚨 **This repo is under construction!** 🚨 Please check back for updates
+* (2023-12-15) Released model code and weights 
+* (2023-12-12) Paper and online demo released
 
 ## Overview
 
