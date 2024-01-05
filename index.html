@@ -146,7 +146,6 @@
 
 </div>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -154,17 +153,74 @@
         <h4>
           <b>tl;dr;</b> ScribblePrompt enables users to segment <b>unseen</b> structures in medical images using scribbles, clicks, and bounding boxes
         </h4>
-        <br>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/L8CiAoHzPUE?si=8jX6tZ7mDBuxoHOg"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
       </div>
     </div>
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column"> -->
+        <div class="table-like" style="justify-content:space-evenly;max-width:880px;margin:auto;">
+          <div>
+            <center>
+              <img src="./assets/gifs/total_segmentator.gif" width="256" />
+            </center>
+            <center>
+              CT
+            </center>
+          </div>
+          <div>
+            <center>
+              <img src="./assets/gifs/wbc.gif" width="256" />
+            </center>
+            <center>
+              Microscopy
+            </center>
+          </div>
+          <div>
+            <center>
+              <img src="./assets/gifs/drive.gif" width="256" />
+            </center>
+            <center>
+              OCT
+            </center>
+          </div>
+          <div>
+            <center>
+              <img src="./assets/gifs/buid.gif" width="256" />
+            </center>
+            <center>
+              Ultrasound
+            </center>
+          </div>
+          <div>
+            <center>
+              <img src="./assets/gifs/hipxray.gif" width="256" />
+            </center>
+            <center>
+              X-Ray
+            </center>
+          </div>
+          <div>
+            <center>
+              <img src="./assets/gifs/acdc.gif" width="256" />
+            </center>
+            <center>
+              MRI
+            </center>
+          </div>  
+      <!-- </div> -->
+    </div>
+  </div>
   </div>
 </section>
 
-<div class="container">
+<!-- <div class="container">
+  <div class="row ">
+      <h2 class="text-center ">Video</h2>
+      <hr/>
+      <div class="column is-four-fifths is-centered">
+      </div>
+  </div>
+</div> -->
+<!-- <div class="container">
   <div class="row ">
       <h2 class="text-center ">Example Segmentations</h2>
       <hr/>
@@ -172,7 +228,7 @@
         <img src="assets/images/teaser.png" class="img-responsive " style="width:100%" alt="Image">
       </div>
   </div>
-</div>
+</div> -->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -181,7 +237,7 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p>
-          Semantic medical image segmentation is a crucial part of both scientific research and clinical care. With enough labelled data, deep learning models can be trained to accurately automate specific medical image segmentation tasks. However, manually segmenting images to create training data is highly labor intensive.
+          Semantic segmentation of medical images is a crucial part of both scientific research and clinical care. With enough labelled data, deep learning models can be trained to accurately automate specific medical image segmentation tasks. However, manually segmenting images to create training data is highly labor intensive.
           <br>
           <br>
           We present <b>ScribblePrompt</b>, an interactive segmentation framework for medical imaging that enables human annotators to segment <b>unseen</b> structures using scribbles, clicks, and bounding boxes. 
@@ -193,12 +249,25 @@
           To achieve generalization to new tasks, we train on a diverse collection of <b>65</b> open-access biomedical datasets -- using both real and synthetic labels. 
           <br>
           <br>
-          We test ScribblePrompt with multiple network architectures and 12 unseen datasets, and demonstrate that it <b>can be used in real-time on a single CPU</b>. 
-          We evaluate ScribblePrompt using manually-collected scribbles, simulated interactions, and a user study. In the <b>user study</b>, ScribblePrompt reduced annotation time by 28% while improving Dice by 15% compared to the Segment Anything Model. 
+          We test ScribblePrompt with multiple network architectures on 12 unseen datasets, and demonstrate that it <b>can be used in real-time on a single CPU</b>. 
+          We evaluate ScribblePrompt using manually-collected scribbles, simulated interactions, and a user study. In the <b>user study</b>, ScribblePrompt reduced annotation time by 28% while improving Dice by 15% compared to the Segment Anything Model (SAM). 
           <br>
           <br>
           ScribblePrompt outperforms existing methods in all our evaluations. 
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/L8CiAoHzPUE?si=8jX6tZ7mDBuxoHOg"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>
