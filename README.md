@@ -13,7 +13,14 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Overview
 
-**ScribblePrompt** is an interactive segmentation tool that enables users to segment *unseen* structures in medical images using clicks, bounding boxes *and scribbles*.
+**ScribblePrompt** is an interactive segmentation tool that enables users to segment *unseen* structures in medical images using clicks, bounding boxes *and* scribbles. 
+
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/total_segmentator.gif)
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/wbc.gif)
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/drive.gif)
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/buid.gif)
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/hipxray.gif)
+![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/acdc.gif)
 
 ## Try ScribblePrompt
 
