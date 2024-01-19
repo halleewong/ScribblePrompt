@@ -5,7 +5,6 @@ import torch.nn.functional as F
 
 from .network import UNet
 
-
 class ScribblePromptUNet:
 
     weights = {
@@ -51,7 +50,7 @@ class ScribblePromptUNet:
                 point_labels: Optional[torch.Tensor] = None, # B x n 
                 scribbles: Optional[torch.Tensor] = None, # B x 2 x H x W
                 box: Optional[torch.Tensor] = None, # B x 1 x 4
-                mask_input = None, # B x 1 x H x W
+                mask_input: Optional[torch.Tensor] = None, # B x 1 x H x W
                 return_logits: bool = False,
                 ):
         """
@@ -75,7 +74,7 @@ class ScribblePromptUNet:
         """
         assert (len(img.shape)==4) and (img.shape[1]==1), f"img shape should be B x 1 x H x W. current shape: {img.shape}"
         assert img.min() >= 0 and img.max() <= 1, f"img should be on [0,1] scale. current range: {img.min()} {img.max()}"
-
+        
         prompts = {
             'img': img,
             'point_coords': point_coords,
@@ -84,6 +83,7 @@ class ScribblePromptUNet:
             'box': box,
             'mask_input': mask_input,
         }
+
         # Prepare inputs for ScribblePrompt unet (B x 5 x H x W)
         x = prepare_inputs(prompts).float().to(self.device)
 
@@ -181,7 +181,7 @@ def prepare_inputs(inputs: Dict[str,torch.Tensor], device = None) -> torch.Tenso
 # Encode clicks and bounding boxes
 # -----------------------------------------------------------------------------
 
-def click_onehot(point_coords, point_labels, shape: Tuple[int,int] = (128,128), indexing='xy'):
+def click_onehot(point_coords, point_labels, shape: Tuple[int,int] = (128,128), indexing: Literal['xy','uv'] ='xy'):
     """
     Represent clicks as two HxW binary masks (one for positive clicks and one for negative) 
     with 1 at the click locations and 0 otherwise
@@ -193,7 +193,6 @@ def click_onehot(point_coords, point_labels, shape: Tuple[int,int] = (128,128), 
     Returns:
         embed (torch.Tensor): Bx2xHxW tensor 
     """
-    assert indexing in ['xy','uv'], f"Invalid indexing: {indexing}"
     assert len(point_coords.shape) == 3, "point_coords must be BxNx2"
     assert point_coords.shape[-1] == 2, "point_coords must be BxNx2"
     assert point_labels.shape[-1] == point_coords.shape[1], "point_labels must be BxN"
