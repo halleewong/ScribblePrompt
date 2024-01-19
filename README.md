@@ -13,7 +13,7 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Overview
 
-**ScribblePrompt** is an interactive segmentation tool that enables users to segment *unseen* structures in medical images using clicks, bounding boxes *and* scribbles. 
+**ScribblePrompt** is an interactive segmentation tool that enables users to segment *unseen* structures in medical images using scribbles, clicks, *and* bounding boxes. 
 
 ![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/total_segmentator.gif)
 ![](https://github.com/halleewong/ScribblePrompt/blob/website/assets/gifs/wbc.gif)
@@ -34,7 +34,7 @@ We provide [checkpoints](https://www.dropbox.com/scl/fo/zl12obhnsqc2mq7ulviq9/h?
 
 * **ScribblePrompt-SAM** based on the [Segment Anything Model](https://github.com/facebookresearch/segment-anything)
 
-Both models have been trained with iterative **click, bounding box and scribble interactions** on a diverse collection of 65 medical imaging datasets with both real and synthetic labels. 
+Both models have been trained with iterative **scribbles, click, and bounding box interactions** on a diverse collection of 65 medical imaging datasets with both real and synthetic labels. 
 
 ## Installation
 
@@ -98,7 +98,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 - [x] Release Gradio demo 
 - [x] Release model code and weights
 - [ ] Release jupyter notebook tutorial
-- [ ] Release scribble simulation code
+- [x] Release scribble simulation code
 - [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
