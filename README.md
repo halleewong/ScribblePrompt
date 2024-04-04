@@ -1,3 +1,6 @@
+<a href=https://arxiv.org/abs/2312.07381><img src="https://img.shields.io/badge/arxiv-2312.07381-orange?logo=arxiv&logoColor=white"/></a>
+<a href=https://huggingface.co/spaces/halleewong/ScribblePrompt><img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg"/></a>
+
 # ScribblePrompt
 
 ### [Project Page](https://scribbleprompt.csail.mit.edu) | [Paper](https://arxiv.org/abs/2312.07381) | [Demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) | [Video](https://youtu.be/L8CiAoHzPUE)
@@ -8,6 +11,7 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-01-19) Released scribble simulation code
 * (2023-12-15) Released model code and weights 
 * (2023-12-12) Paper and online demo released
 
@@ -24,7 +28,9 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Try ScribblePrompt
 
-* Online Gradio Demo: https://huggingface.co/spaces/halleewong/ScribblePrompt
+* Interactive online demo on [Hugging Face Spaces](https://huggingface.co/spaces/halleewong/ScribblePrompt)
+* See [Installation](#-Installation) and [Getting Started](#-Getting-Started) for how to run the Gradio demo locally
+
 
 ## Models
 
@@ -53,9 +59,19 @@ python -m pip install -r ./ScribblePrompt/requirements.txt
 export PYTHONPATH="$PYTHONPATH:$(realpath ./ScribblePrompt)"
 ```
 
+The following optional dependencies are necessary for the local demo:
+```
+pip install gradio==3.40.1
+```
+
 ## Getting Started
 
 First, download the model [checkpoints](https://www.dropbox.com/scl/fo/zl12obhnsqc2mq7ulviq9/h?rlkey=suaj632fd9aqd6c2gtajz1ywc&dl=0) to `./checkpoints`.
+
+To run an interactive demo locally: 
+```
+python demos/app.py
+```
 
 To instantiate ScribblePrompt-UNet and make a prediction:
 ```
@@ -89,7 +105,7 @@ mask, img_features, low_res_logits = sp_sam.predict(
 ) # -> (B, 1, H, W), (B, 16, 256, 256), (B, 1, 256, 256)
 
 ```
-`image` should have spatial dimensions $(H,W) = (128,128)$ and pixel values min-max normalized to the $[0,1]$ range. 
+For best results, `image` should have spatial dimensions $(H,W) = (128,128)$ and pixel values min-max normalized to the $[0,1]$ range. 
 
 For ScribblePrompt-UNet, `mask_input` should be the logits from the previous prediction. For ScribblePrompt-SAM, `mask_input` should be `low_res_logits` from the previous prediction. 
 
@@ -99,11 +115,14 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 - [x] Release model code and weights
 - [ ] Release jupyter notebook tutorial
 - [x] Release scribble simulation code
+- [ ] Release MedScribble dataset
 - [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
 
-Code for ScribblePrompt SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything) 
+* Code for ScribblePrompt-SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything). Thanks to Meta AI for open-sourcing the model. 
+
+* We use functions from [voxsynth](https://github.com/dalcalab/voxynth) for applying random deformations  
 
 ## Citation
 
@@ -119,7 +138,7 @@ If you find our work or any of our materials useful, please cite our paper:
 
 ## License
 
-This project is released under the [Apache 2.0 License](https://github.com/halleewong/ScribblePrompt/blob/main/LICENSE) 
+Code for this project is released under the [Apache 2.0 License](https://github.com/halleewong/ScribblePrompt/blob/main/LICENSE) 
 
 
 

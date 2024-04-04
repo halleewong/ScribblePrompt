@@ -2,7 +2,7 @@ torch>=1.7
 torchvision>=0.8
 kornia>=0.7.0
 opencv-python
-voxynth @ git+https://github.com/dalcalab/voxynth@589ed3b
+voxynth @ git+https://github.com/dalcalab/voxynth.git
 numpy
 matplotlib
 neurite
