@@ -1,5 +1,5 @@
 <a href=https://arxiv.org/abs/2312.07381><img src="https://img.shields.io/badge/arxiv-2312.07381-orange?logo=arxiv&logoColor=white"/></a>
-<a href=https://huggingface.co/spaces/halleewong/ScribblePrompt><img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg"/></a>
+<a href="https://huggingface.co/spaces/halleewong/ScribblePrompt"><img alt="Spaces" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue">
 
 # ScribblePrompt
 
