@@ -28,9 +28,8 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Try ScribblePrompt
 
-* Interactive online demo on [Hugging Face Spaces](https://huggingface.co/spaces/halleewong/ScribblePrompt)
-* See [Installation](#-Installation) and [Getting Started](#-Getting-Started) for how to run the Gradio demo locally
-
+* Interactive [online demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) on Hugging Face Spaces
+* See [Installation](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#installation) and [Getting Started](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#getting-started) for how to run the Gradio demo locally
 
 ## Models
 
@@ -122,7 +121,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 
 * Code for ScribblePrompt-SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything). Thanks to Meta AI for open-sourcing the model. 
 
-* We use functions from [voxsynth](https://github.com/dalcalab/voxynth) for applying random deformations  
+* We use functions from [voxsynth](https://github.com/dalcalab/voxynth) for applying random deformations during scribble simulation 
 
 ## Citation
 
