@@ -1,5 +1,6 @@
 <a href=https://arxiv.org/abs/2312.07381><img src="https://img.shields.io/badge/arxiv-2312.07381-orange?logo=arxiv&logoColor=white"/></a>
-<a href="https://huggingface.co/spaces/halleewong/ScribblePrompt"><img alt="Spaces" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue">
+<a href="https://huggingface.co/spaces/halleewong/ScribblePrompt"><img alt="Spaces" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue"></a>
+<a href="https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing"><img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 
 # ScribblePrompt
 
@@ -11,6 +12,7 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-04-14) Added google colab tutorial
 * (2024-01-19) Released scribble simulation code
 * (2023-12-15) Released model code and weights 
 * (2023-12-12) Paper and online demo released
@@ -112,7 +114,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 
 - [x] Release Gradio demo 
 - [x] Release model code and weights
-- [ ] Release jupyter notebook tutorial
+- [x] Release jupyter notebook tutorial
 - [x] Release scribble simulation code
 - [ ] Release MedScribble dataset
 - [ ] Release segmentation labels collected using ScribblePrompt
