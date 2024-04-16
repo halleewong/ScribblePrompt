@@ -12,8 +12,8 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
-* (2024-04-16) Released MedScribble -- a diverse dataset of segmentation tasks with scribble annotations
-* (2024-04-15) An updated version of the paper is on ArXiv!
+* (2024-04-16) Released [MedScribble](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble) -- a diverse dataset of segmentation tasks with scribble annotations
+* (2024-04-15) An updated version of the paper is on arXiv!
 * (2024-04-14) Added google colab tutorial
 * (2024-01-19) Released scribble simulation code
 * (2023-12-15) Released model code and weights 
@@ -44,6 +44,10 @@ We provide [checkpoints](https://www.dropbox.com/scl/fo/zl12obhnsqc2mq7ulviq9/h?
 * **ScribblePrompt-SAM** based on the [Segment Anything Model](https://github.com/facebookresearch/segment-anything)
 
 Both models have been trained with iterative **scribbles, click, and bounding box interactions** on a diverse collection of 65 medical imaging datasets with both real and synthetic labels. 
+
+## MedScribble Dataset
+
+We release MedScribble, a dataset of multi-annotator scribble annotations for diverse biomedical image segmentation tasks, under [`./MedScribble`](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble). See [the readme](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble/README.md) for more info and [`./MedScribble/tutorial.ipynb`](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble/tutorial.ipynb) for a preview of the data.  
 
 ## Installation
 
@@ -131,11 +135,11 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 
 If you find our work or any of our materials useful, please cite our paper:
 ```
-@article{wong2023scribbleprompt,
-  title={ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Medical Image},
+@article{wong2024scribbleprompt,
+  title={ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Biomedical Image},
   author={Hallee E. Wong and Marianne Rakic and John Guttag and Adrian V. Dalca},
   journal={arXiv:2312.07381},
-  year={2023},
+  year={20234},
 }
 ```
 
