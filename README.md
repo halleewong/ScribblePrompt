@@ -4,7 +4,7 @@
 
 # ScribblePrompt
 
-### [Project Page](https://scribbleprompt.csail.mit.edu) | [Paper](https://arxiv.org/abs/2312.07381) | [Demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) | [Video](https://youtu.be/L8CiAoHzPUE)
+### [Project Page](https://scribbleprompt.csail.mit.edu) | [Paper](https://arxiv.org/abs/2312.07381) | [Online Demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) | [Video](https://youtu.be/L8CiAoHzPUE)
 
 Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmentation for any Medical Image" 
 
@@ -12,6 +12,8 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-04-16) Released MedScribble -- a diverse dataset of segmentation tasks with scribble annotations
+* (2024-04-15) An updated version of the paper is on ArXiv!
 * (2024-04-14) Added google colab tutorial
 * (2024-01-19) Released scribble simulation code
 * (2023-12-15) Released model code and weights 
@@ -116,7 +118,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 - [x] Release model code and weights
 - [x] Release jupyter notebook tutorial
 - [x] Release scribble simulation code
-- [ ] Release MedScribble dataset
+- [x] Release MedScribble dataset
 - [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
