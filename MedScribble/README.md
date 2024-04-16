@@ -1,8 +1,7 @@
 
 # MedScribble
 
-**tl;dr:** `MedScribble` is a diverse collection of biomedical image segmentation tasks with multi-annotator scribble annotations.
-
+> **tl;dr:** `MedScribble` is a collection of diverse biomedical image segmentation tasks with multi-annotator scribble annotations
 
 We collected manual scribbles from 3 annotators for 14 segmentation tasks from 14 different open-access biomedical image segmentation datasets. MedScribble contains a total of 64 2D image-segmentation pairs with 3 sets of scribble annotations for each image-segmentation pair. 
 
@@ -22,7 +21,7 @@ scribble_3.npy
 ```
 The scribble annotations (`scribble_X.npy`) for each annotator are stored as a 2x256x256 array where the 1st channel contains positive scribble (on the label) and the 2nd channel contains negative scribbles (on the background).
 
-See `Tutorial.ipynb` for a simple dataloader.
+See `tutorial.ipynb` for a simple dataloader and preview of the data.
 
 # Data Sources
 
