@@ -123,6 +123,7 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 - [x] Release jupyter notebook tutorial
 - [x] Release scribble simulation code
 - [x] Release MedScribble dataset
+- [ ] Release training code
 - [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
