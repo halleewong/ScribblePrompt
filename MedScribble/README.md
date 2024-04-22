@@ -27,7 +27,7 @@ See `tutorial.ipynb` for a simple dataloader and preview of the data.
 
 See the list of data sources below for the sources of the images and segmentations. 
 
-For AbdominalUS and SpineWeb, you will need to follow the instructions on the respective websites to retrieve data and then perform the following processing steps:
+For `AbdominalUS` and `SpineWeb`, you will need to follow the instructions on the respective websites to retrieve data and then perform the following processing steps:
 
 1. Resample the volume (and segmentation) to 1mmx1mmx1mm spacing 
 2. Pad the volume (and segmentation) with zeros to be square
@@ -48,7 +48,7 @@ If you use this dataset, please cite:
 }
 ```
 
-For the images and segmentations, please refer to and cite the original data sources (below). 
+For the **images and segmentations**, please refer to and cite the original data sources (below). 
 
 ## AbdominalUS
 
@@ -233,7 +233,7 @@ citation:
 
 ## PAXRay
 
-webiste: https://github.com/ConstantinSeibold/ChestXRayAnatomySegmentation/
+website: https://constantinseibold.github.io/paxray/
 
 license: [Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ConstantinSeibold/ChestXRayAnatomySegmentation/?tab=License-1-ov-file)
 
