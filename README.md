@@ -34,6 +34,7 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 * Interactive [online demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) on Hugging Face Spaces
 * See [Installation](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#installation) and [Getting Started](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#getting-started) for how to run the Gradio demo locally
+* Jupyter notebook [colab tutorial](https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing)
 
 ## Models
 
