@@ -14,7 +14,7 @@ Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmen
 
 * (2024-04-16) Released [MedScribble](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble) -- a diverse dataset of segmentation tasks with scribble annotations
 * (2024-04-15) An updated version of the paper is on arXiv!
-* (2024-04-14) Added google colab tutorial
+* (2024-04-14) Added [Google Colab Tutorial](https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing)
 * (2024-01-19) Released scribble simulation code
 * (2023-12-15) Released model code and weights 
 * (2023-12-12) Paper and online demo released
@@ -141,7 +141,7 @@ If you find our work or any of our materials useful, please cite our paper:
   title={ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Biomedical Image},
   author={Hallee E. Wong and Marianne Rakic and John Guttag and Adrian V. Dalca},
   journal={arXiv:2312.07381},
-  year={20234},
+  year={2024},
 }
 ```
 
