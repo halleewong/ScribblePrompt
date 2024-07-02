@@ -6,7 +6,7 @@
 
 ### [Project Page](https://scribbleprompt.csail.mit.edu) | [Paper](https://arxiv.org/abs/2312.07381) | [Online Demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) | [Video](https://youtu.be/L8CiAoHzPUE)
 
-Official implementation of "ScribblePrompt: Fast and Flexible Interactive Segmentation for any Medical Image" 
+Official implementation of [ScribblePrompt: Fast and Flexible Interactive Segmentation for any Biomedical Image](https://arxiv.org/abs/2312.07381) accepted at ECCV 2024
 
 [Hallee E. Wong](https://halleewong.github.io/), [Marianne Rakic](https://mariannerakic.github.io/), [John Guttag](https://people.csail.mit.edu/guttag/), [Adrian V. Dalca](http://www.mit.edu/~adalca/)
 
