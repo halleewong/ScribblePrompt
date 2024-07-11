@@ -12,6 +12,8 @@ Official implementation of [ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-07-01) ScribblePrompt has been accepted to ECCV 2024!
+* (2024-06-17) ScribblePrompt won the [Bench-to-Bedside Award](https://dca-in-mi.github.io/awards.html) at the CVPR 2024 DCAMI Workshop!
 * (2024-04-16) Released [MedScribble](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble) -- a diverse dataset of segmentation tasks with scribble annotations
 * (2024-04-15) An updated version of the paper is on arXiv!
 * (2024-04-14) Added [Google Colab Tutorial](https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing)
@@ -140,7 +142,7 @@ If you find our work or any of our materials useful, please cite our paper:
 @article{wong2024scribbleprompt,
   title={ScribblePrompt: Fast and Flexible Interactive Segmentation for Any Biomedical Image},
   author={Hallee E. Wong and Marianne Rakic and John Guttag and Adrian V. Dalca},
-  journal={arXiv:2312.07381},
+  journal={European Conference on Computer Vision (ECCV)},
   year={2024},
 }
 ```
