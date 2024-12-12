@@ -104,7 +104,7 @@ class WarpScribble:
         else:
             # shape: b x 1 x h x w
             return self.batch_scribble(mask, n_scribbles=n_scribbles)
-        
+
 
 
 # -----------------------------------------------------------------------------

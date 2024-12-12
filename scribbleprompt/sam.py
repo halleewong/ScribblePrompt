@@ -3,6 +3,7 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 import pathlib
+import os
 
 from segment_anything.predictor import SamPredictor
 from segment_anything.build_sam import sam_model_registry
