@@ -2,13 +2,16 @@ import os
 from typing import Literal, Tuple, Optional, Dict
 import torch
 import torch.nn.functional as F
+import pathlib
 
 from .network import UNet
+
+checkpoint_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent / "checkpoints"
 
 class ScribblePromptUNet:
 
     weights = {
-        "v1": "./checkpoints/ScribblePrompt_unet_v1_nf192_res128.pt"
+        "v1": checkpoint_dir / "ScribblePrompt_unet_v1_nf192_res128.pt"
     }
     
     def __init__(self, version: Literal["v1"] = "v1", device = None) -> None:

@@ -2,14 +2,17 @@ from typing import Optional, Literal, Tuple
 import torch
 import torch.nn.functional as F
 import numpy as np
+import pathlib
 
 from segment_anything.predictor import SamPredictor
 from segment_anything.build_sam import sam_model_registry
 
+checkpoint_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent / "checkpoints"
+
 class ScribblePromptSAM(SamPredictor):
 
     weights = {
-        "v1": "./checkpoints/ScribblePrompt_sam_v1_vit_b_res128.pt"
+        "v1": checkpoint_dir / "ScribblePrompt_sam_v1_vit_b_res128.pt"
     }
 
     def __init__(self, version: Literal["v1"] = "v1", device = None) -> None:
