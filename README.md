@@ -12,6 +12,7 @@ Official implementation of [ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-12-12) Released full prompt simulation code
 * (2024-07-01) ScribblePrompt has been accepted to ECCV 2024!
 * (2024-06-17) ScribblePrompt won the [Bench-to-Bedside Award](https://dca-in-mi.github.io/awards.html) at the CVPR 2024 DCAMI Workshop!
 * (2024-04-16) Released [MedScribble](https://github.com/halleewong/ScribblePrompt/tree/main/MedScribble) -- a diverse dataset of segmentation tasks with scribble annotations
