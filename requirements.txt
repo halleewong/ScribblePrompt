@@ -6,3 +6,4 @@ voxynth @ git+https://github.com/dalcalab/voxynth.git
 numpy
 matplotlib
 neurite
+scikit-image
