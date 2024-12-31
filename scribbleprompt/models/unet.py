@@ -6,7 +6,7 @@ import pathlib
 
 from .network import UNet
 
-checkpoint_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent / "checkpoints"
+checkpoint_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent.parent / "checkpoints"
 
 class ScribblePromptUNet:
 
@@ -42,6 +42,12 @@ class ScribblePromptUNet:
             
             self.model.load_state_dict(state)
 
+    def forward(self, x):
+        return self.model(x)
+    
+    def parameters(self):
+        return self.model.parameters()
+    
     def to(self, device):
         self.model.to(device)
         self.device = device

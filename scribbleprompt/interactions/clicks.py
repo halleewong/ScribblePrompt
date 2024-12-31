@@ -45,7 +45,7 @@ class RandomClick:
             click_coord = coords[idx,:]
         else:
             if self.train:
-                warnings.warn("No more points to sample from. Sampling uniformly at random")
+                #warnings.warn("No more points to sample from. Sampling uniformly at random")
                 # Sample a click uniformly at random from the entire image
                 H,W = seg.shape[-2:]
                 click_coord = torch.stack([

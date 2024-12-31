@@ -528,7 +528,7 @@ class FlexiblePromptEmbed(SuperFlexiblePrompt):
         # Embed prompts
         if not self.sam:
             inputs['x'] = self.embed(inputs)
-            inputs['y'] = seg[:,None,...].repeat(1, self.num_entries, 1, 1, 1).float()
+            inputs['y'] = seg.float()
 
         return inputs
 
