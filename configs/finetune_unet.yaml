@@ -1,0 +1,158 @@
+augmentations:
+- RandomAffine:
+    degrees:
+    - 0
+    - 360
+    p: 0.5
+    scale:
+    - 0.8
+    - 1.1
+    translate:
+    - 0
+    - 0.2
+- RandomBrightnessContrast:
+    brightness:
+    - -0.1
+    - 0.1
+    contrast:
+    - 0.8
+    - 1.2
+    p: 0.5
+- RandomVariableGaussianBlur:
+    kernel_size: 5
+    p: 0.5
+    sigma:
+    - 0.1
+    - 1.1
+- RandomVariableGaussianNoise:
+    mean:
+    - 0
+    - 0.05
+    p: 0.5
+    std:
+    - 0
+    - 0.05
+- RandomVariableElasticTransform:
+    alpha:
+    - 1
+    - 2
+    p: 0.25
+    sigma:
+    - 6
+    - 8
+- RandomSharpness:
+    p: 0.5
+    sharpness: 5
+- RandomHorizontalFlip:
+    p: 0.5
+- RandomVerticalFlip:
+    p: 0.5
+callbacks:
+  epoch:
+  - pylot.callbacks.PrintLogged
+  - pylot.callbacks.JobProgress
+  - pylot.callbacks.ETA
+  - pylot.callbacks.TerminateOnNaN
+  - pylot.callbacks.ModelCheckpoint:
+      monitor: dice_score
+      phase: val_id
+  - pylot.callbacks.ModelCheckpoint:
+      monitor: dice_score
+      phase: val_od
+  - scribbleprompt.callbacks.WandbLogger:
+      project: scribbleprompt-unet-wbc
+      entity: hallee #update this!
+prompt_generator:
+  _class: scribbleprompt.interactions.prompt_generator.FlexiblePromptEmbed
+  bbox_embed:
+    _fn: scribbleprompt.interactions.embed.bbox_shaded
+  box_generators:
+  - _class: scribbleprompt.interactions.boxes.UniformBBox 
+  click_embed:
+    _fn: scribbleprompt.interactions.embed.click_onehot
+  init_neg_click_generators:
+    - _class: scribbleprompt.interactions.clicks.RandomClick
+    - _class: scribbleprompt.interactions.clicks.RandBorderClick
+  init_pos_click_generators:
+    - _class: scribbleprompt.interactions.clicks.RandomClick
+    - _class: scribbleprompt.interactions.clicks.ComponentCenterClick
+    - _class: scribbleprompt.interactions.clicks.RandBorderClick
+  scribble_generators:
+    - _class: scribbleprompt.interactions.scribbles.LineScribble
+    - _class: scribbleprompt.interactions.scribbles.CenterlineScribble
+    - _class: scribbleprompt.interactions.scribbles.ContourScribble
+  correction_click_generators:
+    - _class: scribbleprompt.interactions.clicks.RandomClick
+    - _class: scribbleprompt.interactions.clicks.ComponentCenterClick
+    - _class: scribbleprompt.interactions.clicks.RandBorderClick
+  correction_clicks: [1,3]
+  correction_scribbles: [1,3]
+  init_pos_click: [1,3]
+  init_neg_click: [0,3]
+  init_neg_scribble: [0,3]
+  init_pos_scribble: [1,3]
+  prob_bbox: 0.5
+  prob_click: 0.5
+  prob_scribble: 0.5
+  from_logits: true
+data:
+  _class: scribbleprompt.datasets.superpixel.SuperpixelMultiDataset
+  samples_per_epoch: 1000
+  sampling: hierarchical
+  superpixel_prob: 0.5
+  train_tasks: #add your own datasets here!
+    - _class: scribbleprompt.datasets.wbc.WBC
+      subdataset: CV
+      label: cytoplasm
+    - _class: scribbleprompt.datasets.wbc.WBC
+      subdataset: JTSC
+      label: cytoplasm
+  val_tasks: #add your own datasets here!
+    - _class: scribbleprompt.datasets.wbc.WBC
+      subdataset: CV
+      label: nucleus
+    - _class: scribbleprompt.datasets.wbc.WBC
+      subdataset: JTSC
+      label: nucleus    
+dataloader:
+  batch_size: 8
+  num_workers: 16
+  pin_memory: true
+experiment:
+  seed: 42
+  detach: true
+  verbose: true
+log:
+  checkpoint_freq: 5
+  metrics:
+    dice_score:
+      _fn: pylot.metrics.dice_score
+      batch_reduction: null
+      from_logits: true
+  root: /autofs/cluster/dalcalab2/users/hew19/work/interseg-public/output/ #update this!
+  save_freq: 100
+loss_func:
+  _class: scribbleprompt.loss.FocalDiceLoss
+  batch_reduction: null
+  from_logits: true
+model:
+  _class: scribbleprompt.models.network.UNet
+  features:
+  - 192
+  - 192
+  - 192
+  - 192
+  in_channels: 5
+  out_channels: 1
+  # options used in BaseExperiment.build_model()
+  pretrained_weights: /autofs/cluster/dalcalab2/users/hew19/work/interseg-public/ScribblePrompt/checkpoints/ScribblePrompt_unet_v1_nf192_res128.pt #update this!
+  compile: true
+optim:
+  _class: torch.optim.Adam
+  lr: 0.0001
+train:
+  epochs: 1000
+  eval_freq: 10
+  prompt_iter: 5
+  bf16: true
+  grad_accumulation: false
