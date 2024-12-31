@@ -12,6 +12,7 @@ Official implementation of [ScribblePrompt: Fast and Flexible Interactive Segmen
 
 ## Updates
 
+* (2024-12-31) Released example training code
 * (2024-12-12) Released full prompt simulation code
 * (2024-07-01) ScribblePrompt has been accepted to ECCV 2024!
 * (2024-06-17) ScribblePrompt won the [Bench-to-Bedside Award](https://dca-in-mi.github.io/awards.html) at the CVPR 2024 DCAMI Workshop!
@@ -37,7 +38,8 @@ Official implementation of [ScribblePrompt: Fast and Flexible Interactive Segmen
 
 * Interactive [online demo](https://huggingface.co/spaces/halleewong/ScribblePrompt) on Hugging Face Spaces
 * See [Installation](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#installation) and [Getting Started](https://github.com/halleewong/ScribblePrompt?tab=readme-ov-file#getting-started) for how to run the Gradio demo locally
-* Jupyter notebook [colab tutorial](https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing)
+* Jupyter notebook [colab tutorial](https://colab.research.google.com/drive/14ExpVy3PjCCp4VzgTo27Yh_aLBafK8cX?usp=sharing) using pre-trained models
+* Jupyter notebook [tutorials](https://github.com/halleewong/ScribblePrompt/tree/main/notebooks) on training and the prompt generator code
 
 ## Models
 
@@ -120,6 +122,24 @@ For best results, `image` should have spatial dimensions $(H,W) = (128,128)$ and
 
 For ScribblePrompt-UNet, `mask_input` should be the logits from the previous prediction. For ScribblePrompt-SAM, `mask_input` should be `low_res_logits` from the previous prediction. 
 
+## Training
+
+>Note: our training code requires installing the [`pylot`](https://github.com/JJGO/pylot) library. The inference code above does not.  
+
+The configuration settings for training are controlled by yaml config files. We provide two example configs in [`./configs`](https://github.com/halleewong/ScribblePrompt/tree/main/configs) for fine-tuning from the pre-trained ScribblePrompt-UNet weights as well as training from scratch on an example dataset.
+
+To fine-tune ScribblePrompt-UNet from the pre-trained weights:
+```
+python scribbleprompt/experiment/unet.py -config finetune_unet.yaml 
+```
+
+To train a model from scratch:
+```
+python scribbleprompt/experiment/unet.py -config train_unet.yaml 
+```
+
+For a more in-depth tutorial see [`./notebooks/training.ipynb`](https://github.com/halleewong/ScribblePrompt/tree/main/notebooks/training.ipynb).
+
 ## To Do
 
 - [x] Release Gradio demo 
@@ -127,14 +147,17 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 - [x] Release jupyter notebook tutorial
 - [x] Release scribble simulation code
 - [x] Release MedScribble dataset
-- [ ] Release training code
+- [x] Release training code
 - [ ] Release segmentation labels collected using ScribblePrompt
 
 ## Acknowledgements
 
-* Code for ScribblePrompt-SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything). Thanks to Meta AI for open-sourcing the model. 
+* Our training code builds on the [`pylot`](https://github.com/JJGO/pylot) library for deep learning experiment management. We also make use of data augmentation code originally developed for [UniverSeg](https://github.com/JJGO/UniverSeg). Thanks to [@JJGO](https://github.com/JJGO) for sharing this code! 
 
 * We use functions from [voxsynth](https://github.com/dalcalab/voxynth) for applying random deformations during scribble simulation 
+
+* Code for ScribblePrompt-SAM builds on [Segment Anything](https://github.com/facebookresearch/segment-anything). Thanks to Meta AI for open-sourcing the model. 
+
 
 ## Citation
 
