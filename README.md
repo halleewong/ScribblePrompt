@@ -124,7 +124,11 @@ For ScribblePrompt-UNet, `mask_input` should be the logits from the previous pre
 
 ## Training
 
->Note: our training code requires installing the [`pylot`](https://github.com/JJGO/pylot) library. The inference code above does not.  
+>Note: our training code requires the [pylot](https://github.com/JJGO/pylot) library. The inference code above does not.  We recommend installing via pip:
+>```
+>pip install git+https://github.com/JJGO/pylot.git@87191921033c4391546fd88c5f963ccab7597995
+>```
+
 
 The configuration settings for training are controlled by yaml config files. We provide two example configs in [`./configs`](https://github.com/halleewong/ScribblePrompt/tree/main/configs) for fine-tuning from the pre-trained ScribblePrompt-UNet weights as well as training from scratch on an example dataset.
 
