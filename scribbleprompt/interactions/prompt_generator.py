@@ -484,7 +484,7 @@ class FlexiblePromptEmbed(SuperFlexiblePrompt):
         img = inputs['img']
         device = img.device if img is not None else ("cuda" if torch.cuda.is_available() else "cpu")
         shape = tuple(img.shape[-2:])
-        # Embed these prompts for the cross convolution model
+        # Encode these prompts for the unet model
 
         if inputs.get("box") is not None:
             # Embed bounding box

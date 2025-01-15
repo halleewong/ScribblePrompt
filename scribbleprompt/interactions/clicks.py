@@ -8,10 +8,19 @@ import kornia.augmentation as KA
 import os
 os.environ['NEURITE_BACKEND'] = 'pytorch'
 
+from .utils import get_components, get_combined_dt
+
 class RandomClick:
     """
     Generates a variable number of clicks with (x,y) coordinates by randomly 
      sampling clicks uniformly from a given mask
+
+    Args:
+        min_sep (int): minimum separation between clicks in pixels
+        return_xy (bool): if True, return clicks as (x,y) coordinates. Else (u,v)
+        train (bool): if True, sample random clicks from the whole image if the
+            mask is empty or there are no points left. If False, stop sampling clicks. 
+        show (bool): if True, visualize the process
     """
     def __init__(self, 
                  min_sep: int = 0,
@@ -70,8 +79,9 @@ class RandomClick:
         Args:
             seg (torch.Tensor): 1xHxW ground truth segmentation in [0,1] 
                 used to determine whether the clicks are positive or negative
-            mask (torch.Tensor): 1xHxW mask. Clicks will be samples from non-zero 
+            mask (torch.Tensor): 1xHxW mask. Clicks will be sampled from non-zero 
                 pixels in this mask. If None, sample from the seg mask
+            n_clicks (int): the number of clicks to sample
         """
         assert seg.ndim == 3, f"Seg must be 1xHxW: {seg.shape}"
 
@@ -110,7 +120,7 @@ class RandomClick:
 
             if self.show:
                 import neurite as ne
-                from ..plot import show_points
+                from ..analysis.plot import show_points
                 fig,axes = ne.plot.slices([seg.cpu().squeeze(), mask.cpu().squeeze()],
                                titles=["Seg","Mask"], show=False)
                 for ax in axes:
@@ -123,6 +133,12 @@ class RandomClick:
     def sample_click(self, seg, mask=None, n_clicks=1):
         """
         Sample a click for each example in a batch
+        Args:
+            seg (torch.Tensor): 1xHxW or Bx1xHxW ground truth segmentation in [0,1] 
+                used to determine whether the clicks are positive or negative
+            mask (torch.Tensor): optional 1xHxW or Bx1xHxW mask. Clicks will be sampled
+                from non-zero pixels in this mask. If None, sample from the seg mask
+            n_clicks (int): the number of clicks to sample
         """
         if len(seg.shape) == 3:
             return self._sample_click(seg, mask, n_clicks=n_clicks)
@@ -176,16 +192,20 @@ class ComponentCenterClick(RandomClick):
      of clicks in order from largest to smallest component
 
     Args:
-        deterministic (bool): if True, place clicks deterministically from the 
-            largest component to smallest component. Set True during evaluation
         background (bool): whether to include the background when sampling from 
             the label map (only used when mask=None)
+        min_step (int): minimum separation between clicks in pixels
+        return_xy (bool): if True, return clicks as (x,y) coordinates. Else (u,v)    
+        train (bool): if False, place clicks deterministically from the 
+            largest component to smallest component. Else sample proportional
+            to the area of each component.
+        show (bool): if True, visualize the process
     """
     def __init__(self, 
                  background: bool = False,
                  min_sep: int = 0,
                  return_xy: bool = True, 
-                 train = True, 
+                 train: bool = True, 
                  show: bool = False,
                  ):
         super().__init__(min_sep=min_sep, return_xy=return_xy, train=train, show=show)
@@ -218,7 +238,7 @@ class ComponentCenterClick(RandomClick):
 
         return np.array([coords_y[idx], coords_x[idx]])
         
-    def sample_single_click(self, seg: torch.Tensor, mask: Optional[torch.Tensor] = None, n_clicks: int = 1):
+    def _sample_click(self, seg: torch.Tensor, mask: Optional[torch.Tensor] = None, n_clicks: int = 1):
         """
         Args:
             seg (torch.Tensor): 1xHxW ground truth segmentation in [0,1]
@@ -300,14 +320,14 @@ class ComponentCenterClick(RandomClick):
 
             if random_clicks > 0:
                 # shapes: n x 2 and n
-                rand_coords, rand_labels = super().sample_single_click(seg=seg, mask=mask, n_clicks=random_clicks)
+                rand_coords, rand_labels = super()._sample_click(seg=seg, mask=mask, n_clicks=random_clicks)
                 click_coord = torch.cat((click_coord, rand_coords), dim=0)
                 click_label = torch.cat((click_label, rand_labels), dim=0)
 
             if self.show:
                 
                 import neurite as ne
-                from ..plot import show_points
+                from ..analysis.plot import show_points
                 import matplotlib.pyplot as plt
                 fig,axes = ne.plot.slices(
                     [seg.cpu().squeeze(), mask.cpu().squeeze(), components.squeeze(), mask_dt.squeeze()],
@@ -325,7 +345,7 @@ class ComponentCenterClick(RandomClick):
 
 class RandBorderClick(RandomClick):
     """
-    Sample negative clicks from extreme points in a random width boundary region
+    Sample random clicks from in a random width boundary region
     Note: can provided mask := 1 - seg to sample from the label boundary region
     """
     def __init__(self, 
@@ -378,12 +398,13 @@ class RandBorderClick(RandomClick):
         else:
             boundary = ((thresh1 <= corrected_blur_mask)&(corrected_blur_mask < thresh2)).float()
 
+        # Sample clicks from the boundary region
         click_coord, click_label = super()._sample_click(seg=seg, mask=boundary, n_clicks=n_clicks)
 
         if self._show:
             import neurite as ne
             import matplotlib.pyplot as plt
-            from ..plot import show_points, show_mask
+            from ..analysis.plot import show_points, show_mask
 
             if img is not None:
                 fig,axes = ne.plot.slices(
