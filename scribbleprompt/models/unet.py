@@ -6,7 +6,7 @@ import pathlib
 
 from .network import UNet
 
-checkpoint_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent.parent / "checkpoints"
+checkpoint_dir = pathlib.Path(os.path.realpath(__file__)).parent.parent.parent / "checkpoints"
 
 class ScribblePromptUNet:
 
@@ -49,7 +49,7 @@ class ScribblePromptUNet:
         return self.model.parameters()
     
     def to(self, device):
-        self.model.to(device)
+        self.model = self.model.to(device)
         self.device = device
 
     @torch.no_grad()
