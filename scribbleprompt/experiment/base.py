@@ -292,7 +292,7 @@ class BaseExperiment(PylotBaseExperiment):
         return self
 
     def stepwise_steps(self):
-        from multiversegdev.analysis.pertask import load_epoch_task_stats
+        from scribbleprompt.analysis.pertask import load_epoch_task_stats
         return load_epoch_task_stats(self.path / "store")
     
     def to_device(self, gpu_idx=None):

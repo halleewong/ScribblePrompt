@@ -311,11 +311,8 @@ class ScribblePromptExperiment(BaseExperiment):
 
 if __name__ == "__main__":
 
-    from multiversegdev.utils import paths
-    config_dir = pathlib.Path(os.environ.get("SP_CONFIGPATH", None))
-    inf_config_dir = config_dir / "inference"
-
     config_dir = pathlib.Path(os.path.abspath(__file__)).parent.parent.parent / "configs"
+    inf_config_dir = config_dir / "inference"
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", "-config",
