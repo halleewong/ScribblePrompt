@@ -62,17 +62,22 @@ You can install `scribbleprompt` in two ways:
 * **With pip**:
 
 ```
-pip install git+https://github.com/halleewong/ScribblePrompt.git
+# For basic inference
+pip install "scribbleprompt @ git+https://github.com/halleewong/ScribblePrompt.git"
+
+# For prompt simulation and training (additional dependencies)
+pip install "scribbleprompt @ git+https://github.com/halleewong/ScribblePrompt.git"
 ```
 
 * **Manually**: cloning it and installing dependencies
 ```
 git clone https://github.com/halleewong/ScribblePrompt
 python -m pip install -r ./ScribblePrompt/requirements.txt
+python -m pip install -r ./ScribblePrompt/requirements_training.txt
 export PYTHONPATH="$PYTHONPATH:$(realpath ./ScribblePrompt)"
 ```
 
-The following optional dependencies are necessary for the local demo:
+The following optional dependencies are necessary for the local Gradio app demo:
 ```
 pip install gradio==3.40.1
 ```

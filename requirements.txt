@@ -1,10 +1,5 @@
 torch>=1.7
 torchvision>=0.8
-kornia>=0.7.0
-opencv-python
 numpy
-matplotlib
-neurite
-scikit-image
-pylot @ git+https://github.com/JJGO/pylot.git
-wandb
+opencv-python
+
