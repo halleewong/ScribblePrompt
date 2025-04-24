@@ -66,7 +66,7 @@ You can install `scribbleprompt` in two ways:
 pip install "scribbleprompt @ git+https://github.com/halleewong/ScribblePrompt.git"
 
 # For prompt simulation and training (additional dependencies)
-pip install "scribbleprompt @ git+https://github.com/halleewong/ScribblePrompt.git"
+pip install "scribbleprompt[training] @ git+https://github.com/halleewong/ScribblePrompt.git"
 ```
 
 * **Manually**: cloning it and installing dependencies
