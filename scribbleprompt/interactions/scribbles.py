@@ -27,6 +27,7 @@ class WarpScribble:
                 warp: bool = True,
                 warp_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 warp_magnitude: Union[int,Tuple[int],List[int]] = (1, 6), 
+                mask_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 ):
         if isinstance(warp_smoothing, int):
             warp_smoothing = [warp_smoothing, warp_smoothing]
@@ -123,6 +124,7 @@ class LineScribble(WarpScribble):
                  warp: bool = True,
                  warp_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                  warp_magnitude: Union[int,Tuple[int],List[int]] = (1, 6),
+                 mask_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                  # Line scribble settings
                  thickness: int = 1, 
                  preserve_scribble: bool = True, # if True, prevents empty scribble masks from being returned
@@ -136,6 +138,7 @@ class LineScribble(WarpScribble):
             warp=warp, 
             warp_smoothing=warp_smoothing,
             warp_magnitude=warp_magnitude,
+            mask_smoothing=mask_smoothing,
         )
         self.thickness = thickness
         self.preserve_scribble = preserve_scribble
@@ -258,6 +261,7 @@ class CenterlineScribble(WarpScribble):
                 warp: bool = True,
                 warp_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 warp_magnitude: Union[int,Tuple[int],List[int]] = (1, 6),
+                mask_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 # Thickness of skeleton
                 dilate_kernel_size: Optional[int] = None,
                 preserve_scribble: bool = True, # if True, prevents empty scribble masks from being returned
@@ -271,6 +275,7 @@ class CenterlineScribble(WarpScribble):
             warp=warp, 
             warp_smoothing=warp_smoothing,
             warp_magnitude=warp_magnitude,
+            mask_smoothing=mask_smoothing,
         )
         self.dilate_kernel_size = dilate_kernel_size
         self.preserve_scribble = preserve_scribble
@@ -409,6 +414,7 @@ class ContourScribble(WarpScribble):
                 warp: bool = True,
                 warp_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 warp_magnitude: Union[int,Tuple[int],List[int]] = (1, 6),
+                mask_smoothing: Union[int,Tuple[int],List[int]] = (4, 16),
                 # Blur settings
                 blur_kernel_size: int = 33, 
                 blur_sigma: Union[float,Tuple[float],List[float]] = (5.0, 20.0),
@@ -425,6 +431,7 @@ class ContourScribble(WarpScribble):
             warp=warp, 
             warp_smoothing=warp_smoothing,
             warp_magnitude=warp_magnitude,
+            mask_smoothing=mask_smoothing,
         )
 
         # Blur settings
